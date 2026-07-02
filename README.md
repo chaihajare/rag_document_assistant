@@ -1,24 +1,28 @@
 # ⚽ World Cup Buzz
 
-A RAG-powered World Cup 2026 news assistant built with:
-- **Groq** (Llama 3.3 70B) — LLM for persona-driven answers
-- **sentence-transformers** — local embeddings (all-MiniLM-L6-v2)
-- **FAISS** — vector similarity search
-- **feedparser** — live RSS news ingestion (BBC, ESPN, Guardian)
-- **Streamlit** — interactive UI
+A RAG-powered FIFA World Cup 2026 news assistant built with free, open-source tools.
 
 ## How it works
-1. Pulls live World Cup headlines from 3 RSS feeds every 15 minutes
-2. Embeds each article using a local sentence-transformer model
-3. On each question, retrieves the most semantically relevant articles via FAISS
-4. Passes retrieved context + chosen persona to Groq's Llama 3.3 70B
-5. Returns a grounded, cited, personality-driven answer
+1. Pulls live World Cup headlines every 15 mins from BBC, ESPN & Guardian RSS feeds
+2. Embeds articles locally using `sentence-transformers` (all-MiniLM-L6-v2)
+3. Stores vectors in FAISS for fast semantic retrieval
+4. Retrieves top relevant articles per question
+5. Passes context + chosen persona to Groq's Llama 3.3 70B
+6. Returns grounded, cited, personality-driven answers
+
+## Tech Stack
+| Layer | Technology |
+|---|---|
+| LLM | Groq API (Llama 3.3 70B) |
+| Embeddings | sentence-transformers (local, free) |
+| Vector Store | FAISS |
+| Data Source | RSS feeds (BBC, ESPN, Guardian) |
+| UI | Streamlit |
+| Deployment | Google Cloud Run + Docker |
 
 ## Run locally
 ```bash
 pip install -r requirements.txt
+export GROQ_API_KEY=your_key_here
 streamlit run app.py
 ```
-
-## Deploy
-Set `GROQ_API_KEY` as an environment variable or secret before deploying.
