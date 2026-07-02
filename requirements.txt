@@ -1,0 +1,6 @@
+streamlit
+feedparser
+sentence-transformers
+faiss-cpu
+groq
+numpy
