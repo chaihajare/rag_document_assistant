@@ -1,5 +1,7 @@
 # ⚽ World Cup Buzz
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://world-cup-buzz.streamlit.app)
+
 A RAG-powered FIFA World Cup 2026 news assistant built with free, open-source tools.
 
 ## How it works
